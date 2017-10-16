@@ -1,21 +1,17 @@
 # ElixirPlugExample
 
-**TODO: Add description**
+This is a simple usage example of [Plug](https://github.com/elixir-plug/plug)
 
-## Installation
+## How to start application
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_plug_example` to your list of dependencies in `mix.exs`:
+_fetch all dependencies_
 
-```elixir
-def deps do
-  [
-    {:elixir_plug_example, "~> 0.1.0"}
-  ]
-end
+```
+$ mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/elixir_plug_example](https://hexdocs.pm/elixir_plug_example).
+_start application_
 
+```
+$ iex -S mix
+```
