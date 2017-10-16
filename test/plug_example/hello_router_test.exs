@@ -21,6 +21,20 @@ defmodule PlugExample.HellRouterTest do
     assert "oops" == conn.resp_body
   end
 
+  test "returns created when payload is correct" do
+    payload = Poison.encode!(%{name: "joe"})
+    conn = do_request(:post, "/users", payload)
+
+    assert :sent == conn.state
+    assert 201 == conn.status
+    assert payload == conn.resp_body
+  end
+
+  defp do_request(verb, endpoint, payload) do
+    conn(verb, endpoint, payload)
+    |> @router.call(@opts)
+  end
+
   defp do_request(verb, endpoint) do
     conn(verb, endpoint)
     |> @router.call(@opts)
