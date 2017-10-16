@@ -5,7 +5,7 @@ defmodule PlugExample.HelloRouter do
   plug :dispatch
 
   get "/" do
-    send_resp(conn, 200, "hello world changed")
+    send_resp(conn, 200, "hello world")
   end
 
   match _ do
