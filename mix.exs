@@ -27,7 +27,8 @@ defmodule ElixirPlugExample.Mixfile do
     [
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 1.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:mock, "~> 0.2.0", only: :test}
     ]
   end
 end

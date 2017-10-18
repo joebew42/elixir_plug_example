@@ -2,6 +2,8 @@ defmodule PlugExample.HellRouterTest do
   use ExUnit.Case, async: true
   use Plug.Test
 
+  import Mock
+
   @router PlugExample.HelloRouter
   @opts @router.init([])
 
@@ -19,6 +21,14 @@ defmodule PlugExample.HellRouterTest do
     assert :sent == conn.state
     assert 404 == conn.status
     assert "oops" == conn.resp_body
+  end
+
+  test "we call a collaborator" do
+    with_mock Collaborator, [save: fn(_name) -> "this is a test" end] do
+      conn = do_request(:get, "/collaborator")
+
+      assert "this is a test" == conn.resp_body
+    end
   end
 
   test "returns created when payload is correct" do

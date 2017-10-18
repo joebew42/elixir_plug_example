@@ -4,8 +4,14 @@ defmodule PlugExample.HelloRouter do
   plug :match
   plug :dispatch
 
+  @collaborator Application.get_env(:elixir_plug_example, :collaborator) || Collaborator
+
   get "/" do
     send_resp(conn, 200, "hello world")
+  end
+
+  get "/collaborator" do
+    send_resp(conn, 200, @collaborator.save("something"))
   end
 
   post "/users" do
