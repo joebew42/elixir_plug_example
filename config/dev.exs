@@ -1,3 +1,3 @@
 use Mix.Config
 
-config :elixir_plug_example, collaborator: Collaborator
+config :elixir_plug_example, collaborator: RealCollaborator

@@ -11,7 +11,8 @@ defmodule PlugExample.HelloRouter do
   end
 
   get "/collaborator" do
-    send_resp(conn, 200, @collaborator.save("something"))
+    {:ok, response} = @collaborator.save("something")
+    send_resp(conn, 200, response)
   end
 
   post "/users" do
