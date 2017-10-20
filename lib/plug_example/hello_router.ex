@@ -4,7 +4,7 @@ defmodule PlugExample.HelloRouter do
   plug :match
   plug :dispatch
 
-  @collaborator Application.get_env(:elixir_plug_example, :collaborator) || Collaborator
+  @collaborator Application.get_env(:elixir_plug_example, :collaborator) || MockCollaborator
 
   get "/" do
     send_resp(conn, 200, "hello world")

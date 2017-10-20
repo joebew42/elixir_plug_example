@@ -1,4 +1,3 @@
 defmodule Collaborator do
-  def save(_name) do
-  end
+  @callback save(String.t) :: {:ok, String.t}
 end

@@ -24,7 +24,7 @@ defmodule PlugExample.HellRouterTest do
   end
 
   test "we call a collaborator" do
-    with_mock Collaborator, [save: fn(_name) -> "this is a test" end] do
+    with_mock MockCollaborator, [save: fn(_name) -> "this is a test" end] do
       conn = do_request(:get, "/collaborator")
 
       assert "this is a test" == conn.resp_body
